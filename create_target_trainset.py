@@ -25,7 +25,7 @@ def generate_target_trainset(english_dict,giza_output_file_name,output_file_name
 		
 		target_words_list = line2.split()
 		word_pairs_numbers = re.findall('(?<=\(\{).*?(?=\}\))',line3)
-		if word_pairs_numbers==None or len(word_pairs_numbers)==0:
+		if word_pairs_numbers==None or len(word_pairs_numbers)==0:# a word that there is no word in the translated side for. skipping
 			continue
 		print(dbg_counter)
 		
@@ -112,9 +112,9 @@ def load_english_tagged_sentences(tagged_sentences_file_name):
 	return tagged_sentences_dict
 
 def main():
-	english_tagged_file_name = '../Extracted English NEs/lists-conll2003/out-v3.final'
+	english_tagged_file_name = '../Extracted English NEs/lists-conll2003/out-v4.final'
 	giza_output_file_name = '../alignment/parallel_corpus/output.en_fa.dict.A3.final'
-	output_file_name = 'out.1'
+	output_file_name = 'out.2'
 	english_tagged_dict = load_english_tagged_sentences(english_tagged_file_name)
 	#for key,val in english_tagged_dict.items():
 	#	print(key,val)
